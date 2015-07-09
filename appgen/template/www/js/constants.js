@@ -263,13 +263,7 @@ for (var year=THIS_YEAR; year>THIS_YEAR-100; year--) {
     YEAR_OF_BIRTH.push({code: year, name: year});
 }
 
-/*
-SYMPTOMS = [
-<% symptoms.forEach(function(symptom){ %>
-    {code: "<%= symptom.code %>", name: "<%= symptom.name %>"}
-<% }); %>
-]
-*/
+
 SYMPTOMS = [
     {code: "Jaw Pain", name: "Jaw Pain"},
     {code: "Sore Tongue", name: "Sore Tongue"},

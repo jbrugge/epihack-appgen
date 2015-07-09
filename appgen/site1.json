@@ -1,6 +1,13 @@
 {
     "eventName": "musical festival",
     "appName": "musicalFestApp",
+    "appCity": "Rio de Janeiro",
+    "appState": "Rio de Janeiro",
+    "appCountry": "BR",
+    "organization": "Epihack",
+    "organizerName": "Epi Hack",
+    "start": "2015-07-01",
+    "finish": "2015-07-12",
     "versionNo": "1",
     "symptom": [
         {

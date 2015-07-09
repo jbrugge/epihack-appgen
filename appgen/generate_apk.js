@@ -15,6 +15,10 @@ exports.packageAndroidApp = function(appInfo) {
 	//ANDROID_BUILD_TOOLS_DIR = process.env.ANDROID_HOME + "/build_tools/22.0.1/"
 	ANDROID_BUILD_TOOLS_DIR = "/home/vagrant/android-sdk-linux/build-tools/22.0.1/"
 
+	// TODO: JS file needs to stay executable, but is losing it during copy
+	run_cmd_sync("chmod", ["+x", "hooks/after_prepare/010_add_platform_class.js"],
+		{cwd: targetDir}, function(resp) { console.log(resp) });
+
 	run_cmd_sync('cordova', ['build', '--release', 'android'], 
 		{cwd: targetDir}, function(resp) { console.log(resp) });
 	run_cmd_sync('keytool', ['-genkey', '-noprompt', '-keystore', keyStore, '-keypass', keyPass, '-storepass', keyPass, '-alias', appInfo.appName, '-dname', keyDname, '-keyalg', 'RSA', '-keysize', '2048', '-validity', '10000'], 
@@ -28,8 +32,10 @@ exports.packageAndroidApp = function(appInfo) {
 };
 
 function run_cmd_sync(cmd, args, options, callback) {
+	console.log("Starting command " + cmd);
   var spawn = require('child_process').spawnSync,
     child = spawn(cmd, args, options),
     resp = (child.stdout == null ? "" : child.stdout.toString());
+	resp += (child.stderr == null ? "" : child.stderr.toString());
 	callback(resp);
 };	

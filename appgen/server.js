@@ -2,7 +2,8 @@ var fs = require('fs')
     , path = require('path')
     , _ = require('underscore')
     , fse = require('fs.extra')
-    , futil = require('./fileUtil.js');
+    , futil = require('./fileUtil.js')
+	, generator = require('./generate_apk.js');
 
 var targetPath = "./target/";
 var srcPath = "./template/";
@@ -16,9 +17,11 @@ fse.copyRecursive(srcPath, targetPath, function(err) {
   if (! err) {
     futil.transform(siteData, srcPath, targetPath);
     futil.createStaticFiles(siteData, targetPath + "www/contents/templates/", "./contentTemplate/");
+	
+	var apkFileName = generator.packageAndroidApp(siteData);
+	console.log("APK file: " + apkFileName);
   }
 });
-
 
 function createSiteData(jsonFile) {
   var siteData = JSON.parse(fs.readFileSync(jsonFile, 'utf8'));

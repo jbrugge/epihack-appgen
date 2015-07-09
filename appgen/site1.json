@@ -1,0 +1,44 @@
+{
+    "eventName": "musical festival",
+    "appName": "musicalFestApp",
+    "versionNo": "1",
+    "menus": ["p1", "p2"],
+    "pages": [
+        {
+            "id": "p1",
+            "type": "list",
+            "title": "Hospital List",
+            "items": [ "p10", "p11", "p12" ]
+        },
+        {
+            "id": "p2",
+            "type": "detail",
+            "title": "Basic Health guide",
+            "body": "long long html"
+        },
+        {
+            "id": "p10",
+            "type": "detail",
+            "title": "Espanhol do Rio de Janeiro",
+            "body": " Rua Bambina, 98 - Botafogo ",
+            "phone": "(21) 3724-4000",
+            "location": [12.034, 100.2343]
+        },
+        {
+            "id": "p11",
+            "type": "detail",
+            "title": "Hospital Albert Schweitzer",
+            "body": "R. Nilópolis, 329 - Realengo\nRio de Janeiro - RJ",
+            "phone": "21720-040",
+            "location": [12.034, 100.2343]
+        },
+        {
+            "id": "p12",
+            "type": "detail",
+            "title": "Centro Internacional Sarah de Neuroreabilitaçáo e Neurociências",
+            "body": "Rio de Janeiro - State of Rio de Janeiro",
+            "phone": "21720-040",
+            "location": [12.034, 100.2343]
+        }
+    ]
+}

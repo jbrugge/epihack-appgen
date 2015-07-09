@@ -1,0 +1,11 @@
+<ion-view view-title="<%= page.title %>">
+    <ion-content>
+        <ion-list>
+            <% page.items.forEach(function(item){ %>
+            <ion-item href="#/app/contents/<%= item %>">
+                <%= pageMap[item].title %>
+            </ion-item>
+            <% }); %>
+        </ion-list>
+    </ion-content>
+</ion-view>

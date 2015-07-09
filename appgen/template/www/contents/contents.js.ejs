@@ -1,0 +1,18 @@
+angular.module('epihack')
+
+.config(function ($stateProvider, $urlRouterProvider) {
+
+    $stateProvider
+
+<% pages.forEach(function(page){ %>
+    .state('app.<%= page.id %>', {
+        url: '/contents/<%= page.id %>',
+        views: {
+            'menuContent': {
+                templateUrl: "contents/templates/<%= page.id %>.html"
+            }
+        }
+    })
+<% }); %>
+
+});

@@ -23,6 +23,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # accessing "localhost:8080" will access port 80 on the guest machine.
   
   config.vm.network "forwarded_port", guest: 1337, host: 1337
+  # Ionic ports
+  config.vm.network "forwarded_port", guest: 8100, host: 8100
+  config.vm.network "forwarded_port", guest: 35729, host: 35729
 
   # Share an additional folder to the guest VM. The first argument is
   # the path on the host to the actual folder. The second argument is

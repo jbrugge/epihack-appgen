@@ -5,8 +5,7 @@ ANDROID_SDK=http://dl.google.com/android/$ANDROID_SDK_FILENAME
 
 apt-get update
 apt-get install -y npm git openjdk-7-jdk ant expect
-npm install -g n
-n stable
+npm install -g nn stable
 
 curl -O $ANDROID_SDK
 tar -xzvf $ANDROID_SDK_FILENAME
@@ -21,7 +20,7 @@ npm install -g ionic
 expect -c '
 set timeout -1   ;
 spawn /home/vagrant/android-sdk-linux/tools/android update sdk -u --all --filter platform-tool,android-22,build-tools-22.0.1
-expect { 
+expect {
     "Do you accept the license" { exp_send "y\r" ; exp_continue }
     eof
 }

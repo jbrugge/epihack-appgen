@@ -2,6 +2,20 @@
     "eventName": "musical festival",
     "appName": "musicalFestApp",
     "versionNo": "1",
+    "symptom": [
+        {
+            "code": "Fever",
+            "name": "Fever"
+        },
+        {
+            "code": "Cough",
+            "name": "Cough"
+        },
+        {
+            "code": "Sore throat",
+            "name": "Sore throat"
+        }
+    ],
     "menus": ["p1", "p2"],
     "pages": [
         {

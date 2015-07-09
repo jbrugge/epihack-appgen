@@ -1,8 +1,8 @@
 var fs = require('fs')
     , path = require('path')
     , _ = require('underscore')
-    , futil = require('./fileUtil.js')
-    , EJS = require('ejs');
+    , fse = require('fs.extra')
+    , futil = require('./fileUtil.js');
 
 var targetPath = "./target/";
 var srcPath = "./template/";
@@ -11,8 +11,13 @@ var jsonFile = "./site1.json";
 run_cmd("rm", ["-rf", targetPath], function() {});
 run_cmd("mkdir", [targetPath], function() {});
 var siteData = createSiteData(jsonFile);
-futil.copy(siteData, srcPath, targetPath);
-futil.createStaticFiles(siteData, targetPath + "www/contents/templates/", "./contentTemplate/");
+console.log("Copying files...");
+fse.copyRecursive(srcPath, targetPath, function(err) {
+  if (! err) {
+    futil.transform(siteData, srcPath, targetPath);
+    futil.createStaticFiles(siteData, targetPath + "www/contents/templates/", "./contentTemplate/");
+  }
+});
 
 
 function createSiteData(jsonFile) {

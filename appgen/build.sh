@@ -8,7 +8,7 @@ LOG_FILE='build.log'
 APP_NAME=$(date +%d%m%Y_%S)
 echo 'Starting the build\n' > $LOG_FILE
 # TODO
-# + get json files of app skeleton
+# + get json files of app skeleton with curl
 if [ ! -d $BUILD_PATH  ]; then
   mkdir $BUILD_PATH
 fi
@@ -23,4 +23,4 @@ else
   echo 'Please install ionic npm install -g ionic\n' >> $LOG_FILE
 fi
 
-ionic start new_test https://github.com/opendream/epihack-ionoic
+# ionic start new_test https://github.com/opendream/epihack-ionoic

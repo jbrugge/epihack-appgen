@@ -13,6 +13,7 @@ var app = express();
 var targetPath = "./target/";
 var srcPath = "./template/";
 var jsonFile = "./site1.json";
+var buildPath = "./builds/"
 
 app.get('/', function (req, res) {
   var version = exec('node --version', {silent:true}).output;
@@ -20,11 +21,14 @@ app.get('/', function (req, res) {
 });
 
 app.post('/', function (req, res) {
-
-  res.send('POST! Build the app');
+  // Creating a Ionic app from github template
+  var version = exec('./build.sh', {silent:true}).output;
+  console.log('\nPrint working dir'+version);
+  res.send('POST! Build the app '+version);
 });
 
-// Creating a Ionic app from github template
+
+
 // run_cmd("", ["-rf", targetPath], function() {});
 //
 // run_cmd("", ["-rf", targetPath], function() {});

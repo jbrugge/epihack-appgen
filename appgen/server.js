@@ -20,11 +20,10 @@ app.get('/', function (req, res) {
   res.send(version);
 });
 
-app.post('/', function (req, res) {
+app.post('/', function(req, res) {
   // Creating a Ionic app from github template
-  var version = exec('./build.sh', {silent:true}).output;
-  console.log('\nPrint working dir'+version);
-  res.send('POST! Build the app '+version);
+  var version = exec('./build.sh', {silent:true, async:true}).output;
+  res.send({'status': 'OK'});
 });
 
 
